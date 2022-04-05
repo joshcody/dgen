@@ -26,10 +26,12 @@ struct Cli {
     ipaddress: bool,
     #[clap(long, takes_value=false)]
     pop: bool,
+    #[clap(long, required=false)]
+    from_list: Option<String>,
     #[clap(long, takes_value=false)]
     word: bool,
-    #[clap(long, takes_value=false)]
-    json: bool,
+    #[clap(long, required=false)]
+    from_file: Option<String>,
 }
 
 // CLI options are file <OR> the other values
@@ -58,7 +60,19 @@ fn main() {
             println!("{}", dgen::ipaddress());
         }
         if cli.pop {
-            println!("{}",dgen::pop());
+            // check if the user provided a list
+            if let Some(v) = cli.from_list {
+                let items = v.split(",").map(|x| String::from(x)).collect();
+                println!("{}", dgen::choice(&items));
+            } else if let Some(v) = cli.from_file {
+                let data:String = std::fs::read_to_string(v).unwrap().parse().unwrap();
+                let items:Vec<String> = data.split("\n").map(|x| String::from(x)).collect();
+                println!("{}", dgen::choice(&items));
+
+
+            } else {
+                println!("{}",dgen::pop());
+            }
         }
         if cli.word {
             println!("{}",dgen::word());
