@@ -68,8 +68,6 @@ fn main() {
                 let data:String = std::fs::read_to_string(v).unwrap().parse().unwrap();
                 let items:Vec<String> = data.split("\n").map(|x| String::from(x)).collect();
                 println!("{}", dgen::choice(&items));
-
-
             } else {
                 println!("{}",dgen::pop());
             }

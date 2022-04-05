@@ -3,6 +3,7 @@ record_count = 3
 [fields]
 client_ip = "<ipaddress>"
 server_ip = "<ipaddress>"
-pop = "<pop>"
+# pop = "<pop>"
+pop = ["popA","popB","popC","popZ"]
 method = ["GET","POST","OPTION"]
 path = "/<word>/<word>/<word>" 
