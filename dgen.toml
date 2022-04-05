@@ -1,4 +1,4 @@
-record_count = 20
+record_count = 3
 
 [fields]
 client_ip = "<ipaddress>"
