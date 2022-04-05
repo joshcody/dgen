@@ -17,7 +17,7 @@ mod dgen;
 
 #[derive(Parser)]
 #[clap(name = "dgen")]
-#[clap(author = "Josh Cody <josh@thatdot.com")]
+#[clap(author = "Josh Cody <josh@thatdot.com>")]
 #[clap(version = "0.1")]
 struct Cli {
     #[clap(long, required=false)]
