@@ -44,3 +44,5 @@ TODO:
 - Handle proper class C CIDR notations for randomizing IP addresses
 - Add IPv6 address generation
 - Expand the generatable pool of fields
+    - maps
+    
